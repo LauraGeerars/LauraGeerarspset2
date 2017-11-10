@@ -49,35 +49,6 @@ public class SecondActivity extends AppCompatActivity {
     }
 
 
-    //making the story
-    public void makingTheStory() {
-        String inputforstory = Placeholder.getText().toString();
-        if (inputforstory.length() != 0) {
-            Placeholder.setText("");
-            madlibsstory.fillInPlaceholder(inputforstory);
-            //How many words left
-            amountOfWords = madlibsstory.getPlaceholderRemainingCount();
-            WordsCount.setText(amountOfWords + "word(s) left");
-            //Placeholders
-            placeholderfillin = madlibsstory.getNextPlaceholder();
-            Placeholder.setHint(placeholderfillin);
-            //Fill in what kind of word it should be (placeholder)
-            kindOfWord.setText("This word is a/an " + placeholderfillin);
-
-            if (madlibsstory.isFilledIn() == true) {
-                final_story = madlibsstory.toString();
-                Intent intent = new Intent(this, ThirdActivity.class);
-                intent.putExtra("final_story", final_story);
-
-
-            }
-
-
-        }
-
-
-
-    }
 
     public void GetNextPlaceholders(View view) {
         madlibsstory.fillInPlaceholder(Placeholder.getText().toString());
